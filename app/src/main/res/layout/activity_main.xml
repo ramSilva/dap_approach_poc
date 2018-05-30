@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/successful_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSuccessfulClick"
+        android:text="Successful event"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/successful_event_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="# of unsuccessful events"
+        android:inputType="number"
+        app:layout_constraintLeft_toRightOf="@id/successful_event"
+        app:layout_constraintTop_toTopOf="@id/successful_event"/>
+
+    <Button
+        android:id="@+id/unsuccessful_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onUnsuccessfulClick"
+        android:text="Unsuccessful event"
+        app:layout_constraintLeft_toLeftOf="@id/successful_event"
+        app:layout_constraintTop_toBottomOf="@id/successful_event"/>
+
+    <EditText
+        android:id="@+id/unsuccessful_event_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="# of unsuccessful events"
+        android:inputType="number"
+        app:layout_constraintLeft_toRightOf="@id/unsuccessful_event"
+        app:layout_constraintTop_toTopOf="@id/unsuccessful_event"/>
+
+    <Button
+        android:id="@+id/delete_events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onDeleteEvents"
+        android:text="Delete events"
+        app:layout_constraintLeft_toLeftOf="@id/unsuccessful_event"
+        app:layout_constraintTop_toBottomOf="@id/unsuccessful_event"/>
+
+    <TextView
+        android:id="@+id/events_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/delete_events"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/delete_events"/>
+</android.support.constraint.ConstraintLayout>
