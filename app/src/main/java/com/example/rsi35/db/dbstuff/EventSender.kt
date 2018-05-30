@@ -23,6 +23,7 @@ object EventSender {
                                 onEventSuccess?.invoke()
                             }
                         } else {
+                            onEventFailure?.invoke()
                             break
                         }
                     }
