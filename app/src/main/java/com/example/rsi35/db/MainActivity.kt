@@ -63,6 +63,9 @@ class MainActivity : AppCompatActivity() {
                 for (event in events) {
                     events_list.text = events_list.text.toString() + event.eventJson + "\n"
                 }
+                if (events.isEmpty()) {
+                    events_list.text = "\n\n\nThis isn't empty.\n\nI mean, the table is empty, but not this label.\n\n\n\nJust thought you should know.\n\n\n\n\n\nK Bye."
+                }
             }
         }
     }

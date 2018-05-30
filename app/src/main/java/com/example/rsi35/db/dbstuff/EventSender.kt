@@ -8,7 +8,7 @@ object EventSender {
 
     private var isSendingEvents = false
 
-    fun sendEvents(errorPercentage: Float = 0.9F, onEventSuccess: (() -> Unit)?, onEventFailure: (() -> Unit)?) {
+    fun sendEvents(successPercentage: Float = 0.9F, onEventSuccess: (() -> Unit)?, onEventFailure: (() -> Unit)?) {
         if (!isSendingEvents) {
             isSendingEvents = true
             doAsync {
@@ -17,7 +17,7 @@ object EventSender {
                     for (event in events) {
                         Thread.sleep(1000)
                         val random = Random()
-                        if (random.nextInt(10) < errorPercentage * 10) {
+                        if (random.nextInt(10) < successPercentage * 10) {
                             DatabaseConnector.getInstance().deleteEvent(event)
                             uiThread {
                                 onEventSuccess?.invoke()
