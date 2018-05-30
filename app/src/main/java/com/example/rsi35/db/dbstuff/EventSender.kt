@@ -13,9 +13,10 @@ object EventSender {
             isSendingEvents = true
             doAsync {
                 var events = DatabaseConnector.getInstance().allEvents
-                while (!events.isEmpty()) {
+                var failed = false
+                while (!events.isEmpty() && !failed) {
                     for (event in events) {
-                        Thread.sleep(1000)
+                        Thread.sleep(300)
                         val random = Random()
                         if (random.nextInt(10) < successPercentage * 10) {
                             DatabaseConnector.getInstance().deleteEvent(event)
@@ -23,7 +24,8 @@ object EventSender {
                                 onEventSuccess?.invoke()
                             }
                         } else {
-                            onEventFailure?.invoke()
+                            uiThread { onEventFailure?.invoke() }
+                            failed = true
                             break
                         }
                     }

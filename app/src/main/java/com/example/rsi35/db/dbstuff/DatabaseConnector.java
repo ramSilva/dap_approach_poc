@@ -20,7 +20,7 @@ public class DatabaseConnector {
 
     public static void create(Context context) {
         if (instance == null) {
-            AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "events-db").build();
+            AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "events-db").fallbackToDestructiveMigration().build();
             instance = new DatabaseConnector(db);
         }
     }
