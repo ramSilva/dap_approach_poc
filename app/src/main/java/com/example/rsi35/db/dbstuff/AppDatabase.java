@@ -1,4 +1,4 @@
-package com.example.rsi35.db;
+package com.example.rsi35.db.dbstuff;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
