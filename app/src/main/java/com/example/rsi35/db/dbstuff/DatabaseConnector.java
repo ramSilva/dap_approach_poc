@@ -3,7 +3,7 @@ package com.example.rsi35.db.dbstuff;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 
-import com.example.rsi35.db.model.pojo.Event;
+import com.example.rsi35.db.model.pojo.DapEvent;
 
 import java.util.List;
 
@@ -32,11 +32,11 @@ public class DatabaseConnector {
         return instance;
     }
 
-    public List<Event> getAllEvents() {
+    public List<DapEvent> getAllEvents() {
         return db.eventDao().getAll();
     }
 
-    public void insertAll(Event... events) {
+    public void insertAll(DapEvent... events) {
         db.eventDao().insertAll(events);
     }
 
@@ -44,7 +44,7 @@ public class DatabaseConnector {
         db.eventDao().nukeTable();
     }
 
-    public void deleteEvent(Event event) {
+    public void deleteEvent(DapEvent event) {
         db.eventDao().delete(event);
     }
 }

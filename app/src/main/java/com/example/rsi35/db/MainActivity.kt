@@ -6,7 +6,6 @@ import android.view.View
 import com.example.rsi35.db.analytics.Analytics
 import com.example.rsi35.db.analytics.DapTracker
 import com.example.rsi35.db.dbstuff.DatabaseConnector
-import com.example.rsi35.db.model.pojo.DapEvent
 import com.example.rsi35.db.model.pojo.Event
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
@@ -58,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             val events = DatabaseConnector.getInstance().allEvents
             uiThread {
                 for (event in events) {
-                    events_list.text = events_list.text.toString() + DapEvent.from(event).eventJson + "\n"
+                    events_list.text = events_list.text.toString() + event.eventJson + "\n"
                 }
                 if (events.isEmpty()) {
                     events_list.text = "\n\n\nThis isn't empty.\n\nI mean, the table is empty, but not this label.\n\n\n\nJust thought you should know.\n\n\n\n\n\nK Bye."

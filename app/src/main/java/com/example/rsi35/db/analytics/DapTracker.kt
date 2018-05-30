@@ -2,6 +2,7 @@ package com.example.rsi35.db.analytics
 
 import android.content.Context
 import android.util.Log
+import com.example.rsi35.db.dbstuff.DatabaseConnector
 import com.example.rsi35.db.dbstuff.EventSender
 import com.example.rsi35.db.model.pojo.DapEvent
 import com.example.rsi35.db.model.pojo.Event
@@ -50,6 +51,7 @@ class DapTracker(context: Context) {
     }
 
     fun postEvent(event: DapEvent) {
+        DatabaseConnector.getInstance().insertAll(event)
         EventSender.sendEvents(1.0f, onPostEventCallback, onPostEventCallback)
     }
 
